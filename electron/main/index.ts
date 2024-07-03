@@ -1,4 +1,4 @@
-import {app, BrowserWindow, shell, ipcMain} from 'electron'
+import {app, BrowserWindow, ipcMain, Menu, shell} from 'electron'
 import {createRequire} from 'node:module'
 import {fileURLToPath} from 'node:url'
 import path from 'node:path'
@@ -43,6 +43,7 @@ const preload = path.join(__dirname, '../preload/index.mjs')
 const indexHtml = path.join(RENDERER_DIST, 'index.html')
 
 async function createWindow() {
+    Menu.setApplicationMenu(null)
     win = new BrowserWindow({
         title: 'Main window',
         icon: path.join(process.env.VITE_PUBLIC, 'favicon.ico'),
