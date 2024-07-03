@@ -18,6 +18,9 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
     const [channel, ...omit] = args
     return ipcRenderer.invoke(channel, ...omit)
   },
+  openHoverball() {
+    return ipcRenderer.send('open-hoverball')
+  },
 
   // You can expose other APTs you need here.
   // ...
